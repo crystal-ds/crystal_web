@@ -1,0 +1,18 @@
+div#one {
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgb(200, 200, 200);
+    position: fixed;
+    background: orange;
+    bottom: 0;
+    right: 0;
+}
+
+.input_form{
+	margin: 0 10px auto;
+	width: 400px;
+}
+
+.seleted_model { 
+	border: 5px solid #FFFF00;
+}
