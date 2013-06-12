@@ -4,27 +4,96 @@
  * Requires jQuery v1.3.2 or later
  * Author: Arthur Liu（yikliu@umail.iu.edu)
  */
-var ajaxServer =  'http://140.182.67.33:8080';
+var ajaxServer =  'http://localhost:8080';
 var rowCount = 4; // Tab1: each row has max of 4 elements
 var allModels;
 
 var selectedModelId = -1;
+var batch_id = -1;
 var title;
 var aModel;
 var inputs;
 var description;
 
-var input_type;
-var input_properties;
+var input_type; 
+var input_properties; 
 var input_name;
 var input_id;
 
-$(document).ready(function() {		
+$(document).ready(function() {	
+	$('#SubmitInput').submit(function() {		
+		var input_to_submit = allModels[selectedModelId.toString()]["inputs"];
+		var id_no = 0;
+		var submitdata = {};
+		var model_id;
+		
+		jQuery.each(input_to_submit,function(){
+				var thisValue;  
+				var input_type = this["type"];
+				id_no++;
+				model_id = selectedModelId.toString();
+				var myid = model_id+"_"+id_no;	
+				if(document.getElementById(myid.toString())){
+					var values = null;
+					switch(input_type)
+					{
+						case "RANGESLIDER":
+						  values = $('#'+myid).slider("option","values");	
+						  this["properties"]["high"] = values[1];
+						  this["properties"]["low"] = values[0];						  			  
+						  break;
+						case "CHECKBOX":
+						  values =  $('#'+myid).is(':checked');
+						  this["properties"]["value"] = values;
+						  this["properties"]["checked"] = values;
+						  break;			  
+						case "INTEGER":
+						case "SIMPLE":			  
+						case "STRING":					  
+						  values = $('#'+myid).val();
+						  this["properties"]["value"] = values;
+						  break;
+						default:
+						  console.log("Unknonw:" + input_type);
+					}
+				}			
+				
+				console.log(JSON.stringify(this));				
+				submitdata[this["name"]] = this;
+		});
+
+		if(selectedModelId != -1){
+			$.ajax({
+				type: "POST",
+				url: ajaxServer+'/crystal-a2c2/eme/models/'+selectedModelId+'/run',
+				//data : '[{"InputNode1" : {"name" : "InputNode1","properties" : {"checked" : "true","value" : "true"},"id" : null,"type" : "CHECKBOX"},"InputNode2" : {"name" : "InputNode2","properties" : {"min" : "1","max" : "5","value" : "3"},"id" : null,"type" : "SIMPLE"},"InputNode3" : {"name" : "InputNode3","properties" : {"min" : "0", "max" : "10","high" : "7","low" : "5"}, "id" : null,"type" : "RANGESLIDER"}}]',
+	    		data : '['+JSON.stringify(submitdata)+']',
+	    		contentType : 'application/json',
+	    		success: function(data){
+	    			//console.log(data);
+	    			batch_id = data["batchJob"];
+	    			$('#rootwizard').bootstrapWizard('next');
+	    		},
+	    		error : function(jqXHR, textStatus, errorThrown){
+	    			alert(errorThrown);
+	    		},
+				dataType: 'json'
+			});	
+		}
+		
+	});
+
 	$('#rootwizard').bootstrapWizard({
 		onNext: function(tab, navigation, index) {
 				if(index == 1){
 					if(selectedModelId == -1){
 						alert('Please select a model to proceed');
+						return false;
+					}
+				}
+				if(index == 2){
+					if(batch_id == -1){
+						alert('Model Run not yet finished');
 						return false;
 					}
 				}
@@ -35,18 +104,18 @@ $(document).ready(function() {
 				var $current = index+1;
 				var $percent = ($current/$total) * 100;
 				$('#rootwizard').find('.bar').css({width:$percent+'%'});
-
 				if($current == 2){
 					aModel=allModels[selectedModelId.toString()];
 					description = aModel["description"];
 					model_id = aModel["id"];
 					inputs=aModel["inputs"];
 					var id_no = 0;
+					$(".control-group").remove();
 					jQuery.each(inputs, function() {
-  						input_type = this["type"];
-  						input_name = this["name"];
-  						input_id = this["id"];
-  						input_properties = this["properties"];  
+  						var input_type = this["type"];
+  						var input_name = this["name"];
+  						var input_id = this["id"];
+  						var input_properties = this["properties"];  
   						id_no++;			
   						var myid = model_id+"_"+id_no;			
   						var lbl = input_name;
@@ -80,6 +149,9 @@ $(document).ready(function() {
 						}
 					});
 
+				}
+				if($current == 3){
+					$('#tab3').html(batch_id.toString());
 				}
 
 			}
@@ -126,8 +198,7 @@ $(document).ready(function() {
 			$('[id^="model"]').click(function (){
 				$('[id^="model"]').removeClass('seleted_model');
 				$(this).addClass('seleted_model');
-				selectedModelId = parseInt($(this).attr('id').substring(5));
-				//console.log(selectedModelId);
+				selectedModelId = parseInt($(this).attr('id').substring(5));				
 			});			
 		}
 	});		
