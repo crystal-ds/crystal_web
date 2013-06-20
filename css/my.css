@@ -16,3 +16,8 @@ div#one {
 .seleted_model { 
 	border: 5px solid #FFFF00;
 }
+
+.mytooltip{
+    position: absolute;
+    top: 22px;   
+}

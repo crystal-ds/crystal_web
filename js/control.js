@@ -1,8 +1,7 @@
 $(function () {
     // Horizontal slider
     $('#slider').slider({
-        range: true,
-        //values: [17, 67]
+        range: true        
     });
 
 	// Date Picker

@@ -1,0 +1,294 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bor",
+				"border-color"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"border-co",
+				"border-bottom-color"
+			],
+			[
+				"eg",
+				"eg1"
+			],
+			[
+				"js",
+				"jsPlumb"
+			],
+			[
+				"to",
+				"toString"
+			],
+			[
+				"ba",
+				"batch_id"
+			],
+			[
+				"this",
+				"thisValue"
+			],
+			[
+				"input_",
+				"input_to_submit"
+			],
+			[
+				"all",
+				"allModels"
+			],
+			[
+				"error",
+				"errorThrown"
+			],
+			[
+				"ajax",
+				"ajaxServer"
+			],
+			[
+				"aja",
+				"ajaxServer"
+			],
+			[
+				"cur",
+				"curVal"
+			],
+			[
+				"make",
+				"makeTextInput"
+			],
+			[
+				"mak",
+				"makeSlider"
+			],
+			[
+				"input",
+				"input_properties"
+			],
+			[
+				"model",
+				"model_id"
+			],
+			[
+				"pro",
+				"properties"
+			],
+			[
+				"sele",
+				"selectedModelId"
+			],
+			[
+				"sle",
+				"selectedModel"
+			],
+			[
+				"app",
+				"appendTo"
+			],
+			[
+				"marg",
+				"margin-left"
+			],
+			[
+				"j",
+				"jQuery"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 35.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/yikliu/Desktop/Sublime Text 2.0.1 x64/Data/Packages/User/Preferences.sublime-settings",
+		"/C/Users/yikliu/Desktop/Sublime Text 2.0.1 x64/Data/Packages/Default/Preferences.sublime-settings",
+		"/G/web_services/httpd/data/EIA/css/my.css",
+		"/G/web_services/httpd/data/EIA/js/my.js",
+		"/G/web_services/httpd/data/EIA/js/do_test.js",
+		"/G/web_services/httpd/data/EIA/do_test.php",
+		"/G/web_services/httpd/data/EIA/electric_car_pairwise_comparisons.json",
+		"/G/web_services/httpd/data/EIA/start.php",
+		"/G/web_services/httpd/data/EIA/index.php",
+		"/G/web_services/httpd/data/EIA/css/bootstrap.min.css",
+		"/G/web_services/httpd/data/EIA/jsPlumb/jsPlumbChar.css",
+		"/G/web_services/httpd/data/EIA/comparison.html",
+		"/G/web_services/httpd/data/EIA/.nfs00000000006711b90000016e",
+		"/G/web_services/httpd/data/EIA/css/datepicker.css",
+		"/G/web_services/httpd/data/EIA/js/bootstrap-datepicker.js",
+		"/G/web_services/httpd/data/EIA/index.html",
+		"/G/web_services/httpd/data/crystal-a2c2/index.html",
+		"/G/web_services/httpd/data/crystal-a2c2/css/my.css",
+		"/G/web_services/httpd/data/crystal-a2c2/js/control.js",
+		"/G/web_services/httpd/data/crystal-a2c2/js/my.js",
+		"/C/Program Files/Apache Software Foundation/Tomcat 6.0/webapps/crystal-a2c2/WEB-INF/web.xml",
+		"/C/Users/yikliu/Dropbox/WiredInExperiment/Analysis/summary2Half.csv",
+		"/G/web_services/httpd/data/crystal-a2c2/js/jquery.bootstrap.wizard.js",
+		"/C/Users/yikliu/Dropbox/data15.csv",
+		"/C/Users/yikliu/Dropbox/ampl.mod",
+		"/G/web_services/httpd/data/cultural/js/my.js",
+		"/G/web_services/httpd/data/cultural/index.html",
+		"/G/web_services/httpd/data/cultural/css/my.css",
+		"/G/web_services/httpd/data/cultural/js/Liviz.js/workered.js",
+		"/G/web_services/httpd/data/cultural/js/Liviz.js/main.js",
+		"/G/web_services/httpd/data/cultural/js/load.html",
+		"/G/web_services/httpd/data/cultural/test.html",
+		"/G/web_services/httpd/data/cultural/css/jsPlumbChar.css",
+		"/G/web_services/httpd/data/cultural/my.css",
+		"/G/web_services/httpd/data/cultural/backup.js",
+		"/G/web_services/httpd/data/cultural/Liviz.js/workered.js",
+		"/G/web_services/httpd/data/cultural/my.js",
+		"/G/web_services/httpd/data/cultural/jsPlumbChar.css",
+		"/G/web_services/httpd/data/cultural/index.htm",
+		"/G/web_services/httpd/data/cultural/map.html",
+		"/C/Users/yikliu/Dropbox/WiredInExperiment/data/datafile/p4.txt",
+		"/C/Users/yikliu/Dropbox/WiredInExperiment/logs/pilot1.txt",
+		"/C/Users/yikliu/Dropbox/WiredInExperiment/logs/p3.txt",
+		"/C/Users/yikliu/Dropbox/WiredInExperiment/logs/p2.txt",
+		"/D/crystal/index.html",
+		"/D/crystal/log.php",
+		"/D/crystal/js/my.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"comp6",
+			"comparison",
+			"input",
+			"text",
+			"font",
+			"add-on",
+			"form",
+			"input_type",
+			"myid",
+			"val",
+			"position",
+			"stateMachineConnectorProtagonist_32_28",
+			"connection_32_14",
+			"window14",
+			"connection_32_14",
+			"explanation",
+			"close_box",
+			"menu",
+			"close_box"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 117.0,
+	"status_bar_visible": true
+}

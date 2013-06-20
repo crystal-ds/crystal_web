@@ -1,5 +1,4 @@
 $(function () {
-
     // Accordion
     $("#accordion").accordion({
         header: "h3"
@@ -92,8 +91,6 @@ $(function () {
 
     // Remove focus from buttons
     $('.ui-dialog :button').blur();
-
-
 
     // Vertical slider
     $("#slider-vertical").slider({

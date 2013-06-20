@@ -57,7 +57,6 @@ $(document).ready(function() {
 						  console.log("Unknonw:" + input_type);
 					}
 				}			
-				
 				console.log(JSON.stringify(this));				
 				submitdata[this["name"]] = this;
 		});
@@ -69,8 +68,7 @@ $(document).ready(function() {
 				//data : '[{"InputNode1" : {"name" : "InputNode1","properties" : {"checked" : "true","value" : "true"},"id" : null,"type" : "CHECKBOX"},"InputNode2" : {"name" : "InputNode2","properties" : {"min" : "1","max" : "5","value" : "3"},"id" : null,"type" : "SIMPLE"},"InputNode3" : {"name" : "InputNode3","properties" : {"min" : "0", "max" : "10","high" : "7","low" : "5"}, "id" : null,"type" : "RANGESLIDER"}}]',
 	    		data : '['+JSON.stringify(submitdata)+']',
 	    		contentType : 'application/json',
-	    		success: function(data){
-	    			//console.log(data);
+	    		success: function(data){	    			
 	    			batch_id = data["batchJob"];
 	    			$('#rootwizard').bootstrapWizard('next');
 	    		},
@@ -79,8 +77,7 @@ $(document).ready(function() {
 	    		},
 				dataType: 'json'
 			});	
-		}
-		
+		}		
 	});
 
 	$('#rootwizard').bootstrapWizard({
@@ -153,7 +150,6 @@ $(document).ready(function() {
 				if($current == 3){
 					$('#tab3').html(batch_id.toString());
 				}
-
 			}
 		}
 
@@ -216,6 +212,11 @@ function makeCheckbox(id, lbl, defa){
 	$(html).insertBefore('#tab2_submit');	
 }
 
+function getToolTip(id, value){
+	var tooltip = '<div class = "mytooltip" id="tooltip'+id+'">'+value+'</div>';
+	return tooltip;
+}
+
 function makeSlider(id, lbl, minimum, maximum, highest, lowest){
 	var html = '<div class="control-group"><label">'+lbl+'</label><div id="'+id+'"></div><span class="help-block" id="slider_range"></span></div>';
 	$(html).insertBefore('#tab2_submit');	
@@ -224,14 +225,24 @@ function makeSlider(id, lbl, minimum, maximum, highest, lowest){
         min: minimum,
         max: maximum,
         values: [lowest, highest],        
-	    slide: function() {
-	        var values = $('#'+id).slider("option","values");
-			$('#slider_range').html('<p>'+minimum+' '+values[0]+' '+values[1]+' '+maximum+'</p>');	    
+	    slide: function(event, ui) {
+	        //var values = $('#'+id).slider("option","values");
+			var values = ui.values;
+			for(var i = 0; i < 2; i++){
+				$('#tooltip'+i).html(values[i].toString());
+			}				    
 	    },
-
-	    create: function() {
+	    create: function(event, ui) {
 	    	var values = $('#'+id).slider("option","values");
-	    	$('#slider_range').html('<p>'+minimum+' '+values[0]+' '+values[1]+' '+maximum+'</p>');
+	    	var tooltips = $(this).find(".tooltip");
+	    	if(tooltips.length == 0){
+	    		var handlers = $(this).find(".ui-slider-handle");
+	    		if(handlers.length == 2){
+	    			jQuery.each(handlers,function(idx, hdl){
+	    				$(this).append(getToolTip(idx,values[idx]));				
+					});
+	    		}				
+	    	}				    	
 	    }
     });
 }
